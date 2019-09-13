@@ -128,7 +128,7 @@ slider1.addEventListener('input', function(e) {
   //In this section you will just want to replace the layers name with whatever name you gave your GreenBook layer.
         map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['hworkers'] // replace this with the name of the layer
+    layers: ['HWorkers'] // replace this with the name of the layer
   });
   if (!features.length) {
     return;
