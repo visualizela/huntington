@@ -60,7 +60,7 @@
     <div class='map-overlay-inner'>
         <label>Pacific Rail</label>
         <input id='slider' type='range' min='0' max='100' step='0' value='100' />
-      <label>Census 1940</label>
+      <label>Pacific Rail</label>
         <input id='slider1' type='range' min='0' max='100' step='0' value='100' />
     </div>
 </div>
@@ -73,8 +73,8 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/andy-rutkowski/ck0ifwwfq0b7q1coytfqq062s',
     center: [-118.545829, 33.989976],
-    minZoom: 9.5,
-    maxZoom: 13,
+    minZoom: 4.5,
+    maxZoom: 24,
     zoom: 9.5
 });
  
@@ -128,7 +128,7 @@ slider1.addEventListener('input', function(e) {
   //In this section you will just want to replace the layers name with whatever name you gave your GreenBook layer.
         map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['HWorkers'] // replace this with the name of the layer
+    layers: ['Hworkers'] // replace this with the name of the layer
   });
   if (!features.length) {
     return;
