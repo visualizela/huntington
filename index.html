@@ -124,11 +124,11 @@ slider1.addEventListener('input', function(e) {
             "url": "mapbox://andy-rutkowski.a0p1p0hr"
         },
         "type": "raster"
-      
+      })
      //In this section you will just want to replace the layers name with whatever name you gave your GreenBook layer.
         map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['1947GreenBook'] // replace this with the name of the layer
+    layers: ['47GreenBook'] // replace this with the name of the layer
   });
   if (!features.length) {
     return;
