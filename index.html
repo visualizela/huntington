@@ -60,7 +60,7 @@
     <div class='map-overlay-inner'>
         <label>Pacific Rail</label>
         <input id='slider' type='range' min='0' max='100' step='0' value='100' />
-      <label>HOLC1939</label>
+      <label>HOLC 1939</label>
         <input id='slider1' type='range' min='0' max='100' step='0' value='100' />
     </div>
 </div>
@@ -71,7 +71,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keS1ydXRrb3dza2kiLCJhIjoiWDJRMFVUWSJ9.iHl6Cf0M79wmHQlfP6Bk8Q';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/v1/andy-rutkowski/ck0ifwwfq0b7q1coytfqq062s',
+    style: 'mapbox://styles/andy-rutkowski/ck0ifwwfq0b7q1coytfqq062s',
     center: [-118.545829, 33.989976],
     minZoom: 4.5,
     maxZoom: 24,
@@ -124,9 +124,25 @@ slider1.addEventListener('input', function(e) {
             "url": "mapbox://andy-rutkowski.a0p1p0hr"
         },
         "type": "raster"
-     })
+      
+     //In this section you will just want to replace the layers name with whatever name you gave your GreenBook layer.
+        map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['1947GreenBook'] // replace this with the name of the layer
+  });
+  if (!features.length) {
+    return;
+  }
+  var feature = features[0];
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.Type + '</h3><p>' + feature.properties.Name + '</p>')
+  .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
 
 </script>
+    
   <div id="info">
     
     <h2>Huntington Mapping Project</h1>
